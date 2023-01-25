@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             child: IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.more_horiz,
+                Icons.search,
               ),
             ),
           ),

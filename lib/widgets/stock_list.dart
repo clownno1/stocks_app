@@ -3,337 +3,77 @@ import '../models/stock_details.dart';
 import 'package:http/http.dart' as http;
 
 class StockList extends StatefulWidget {
-  final List<StockDetails> stocks;
-  StockList({
-    required this.stocks,
-  });
-
   @override
   State<StockList> createState() => _StockListState();
 }
 
 class _StockListState extends State<StockList> {
+  final List<Stock> stockname = [
+    Stock(id: '1', name: 'Bitcoin', value: 22822, change: 0.13),
+    Stock(id: '2', name: 'ETH', value: 1638, change: 0.68),
+    Stock(id: '3', name: 'EUR', value: 1.0856, change: 0.23),
+    Stock(id: '4', name: 'GBP', value: 1.2398, change: 0.04),
+    Stock(id: '5', name: 'AAPL', value: 137.87, change: 1.92),
+    Stock(id: '6', name: 'MSFT', value: 240.22, change: 3.57),
+    Stock(id: '7', name: 'AMZN', value: 97.25, change: 3.81),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Container(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'BTC',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        child: Text(
-                          '22822',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '0.13',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'ETH',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        child: Text(
-                          '1638',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '0.68',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'EUR',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        child: Text(
-                          '1.0856',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '0.23',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'GBP',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        child: Text(
-                          '1.2398',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '0.04',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'AAPL',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        child: Text(
-                          '137.87',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '1.92',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'MSFT',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        child: Text(
-                          '240.22',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '3.57',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 100,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'AMZN',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        child: Text(
-                          '97.25',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '3.81',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1,
-                width: double.infinity,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.grey),
-                ),
-              ),
-            ],
+        const SizedBox(
+          height: 1,
+          width: double.infinity,
+          child: DecoratedBox(
+            decoration: BoxDecoration(color: Colors.grey),
           ),
+        ),
+        Column(
+          children: stockname.map((stx) {
+            return Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: 100,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        stx.name,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          stx.value.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          stx.change.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 1,
+                  width: double.infinity,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.grey),
+                  ),
+                ),
+              ],
+            );
+          }).toList(),
         ),
       ],
     );

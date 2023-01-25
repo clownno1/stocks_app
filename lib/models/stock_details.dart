@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
-class StockDetails {
-  @required
-  final id;
-  @required
-  final price;
-  @required
-  final change;
-  StockDetails(
+class Stock {
+  var id;
+  var name;
+  var value;
+  var change;
+  Stock({
     this.id,
-    this.price,
+    this.name,
+    this.value,
     this.change,
-
-     List<StockDetails> getAll(){
-      List<StockDetails> stocks = List<Stock>();
-      stocks.add(StockDetails(id:""))
-    }
-  );
+  });
 }
