@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import '../models/stock_details.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
+import 'dart:convert';
 
 class StockList extends StatefulWidget {
   @override
   State<StockList> createState() => _StockListState();
+}
+
+void getData() async {
+  Response response = await get(Uri.parse(
+      "https://api.tradier.com/v1/ai/data/GOOG&symbols=BTC,AAPL,ETH,EUR,GBP,MSFT,AMZN"));
+  Map data = jsonDecode(response.body);
 }
 
 class _StockListState extends State<StockList> {
@@ -49,13 +56,13 @@ class _StockListState extends State<StockList> {
                     Column(
                       children: [
                         Text(
-                          stx.value.toString(),
+                          '\$${stx.value.toString()}',
                           style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
                         Text(
-                          stx.change.toString(),
+                          '\$${stx.change.toString()}',
                           style: const TextStyle(
                             color: Colors.white,
                           ),

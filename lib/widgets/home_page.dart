@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stocks_app/widgets/stock_list.dart';
-import 'package:intl/intl.dart';
+
+import './clock.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,14 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String datetime =
-      DateFormat('MMM d,h:mm a').format(DateTime.now()).toString();
-  @override
-  void setState(datetime) {
-    String datetime =
-        DateFormat('MMM d,h:mm a').format(DateTime.now()).toString();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +27,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                datetime,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              ClockWidget(),
             ],
           ),
         ),
